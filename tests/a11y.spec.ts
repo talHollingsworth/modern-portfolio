@@ -29,6 +29,15 @@ test("page has a single h1 and a skip link", async ({ page }) => {
   await expect(page.getByRole("link", { name: "Skip to main content" })).toHaveAttribute("href", "#main");
 });
 
+// Every Unsplash background photo must be credited in the footer.
+test("footer credits each Unsplash photographer", async ({ page }) => {
+  await page.goto("/");
+  const footer = page.getByRole("contentinfo");
+  for (const name of ["Pete Alexopoulos", "Mitchell Luo", "Roberta Guillen"]) {
+    await expect(footer.getByRole("link", { name: new RegExp(name) })).toBeVisible();
+  }
+});
+
 test("keyboard focus is visible on interactive elements", async ({ page }) => {
   await page.goto("/");
   await page.keyboard.press("Tab");

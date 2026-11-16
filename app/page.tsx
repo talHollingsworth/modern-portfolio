@@ -15,6 +15,15 @@ function Img({ src, alt, className }: { src: string; alt: string; className?: st
   return <img src={asset(src)} alt={alt} loading="lazy" className={className} />;
 }
 
+// Unsplash photos used as section backgrounds. The Unsplash license doesn't
+// require credit, but we give it anyway. `id` is the photo's Unsplash ID
+// (the part after the photographer's name in the original filename).
+const photoCredits = [
+  { use: "Hero", photographer: "Pete Alexopoulos", id: "JFfDRKlI3hY" },
+  { use: "Case studies", photographer: "Mitchell Luo", id: "FWoq_ldWlNQ" },
+  { use: "Experience", photographer: "Roberta Guillen", id: "YPLx5eOy49M" },
+];
+
 // One project tile: optional screenshot(s) with a gentle parallax, role, text and links.
 // A project supplies either a single `image` or an `images` array (shown as a 2-column grid).
 function ProjectCard({ p, index }: { p: Project; index: number }) {
@@ -288,7 +297,29 @@ export default function Home() {
         </section>
       </main>
       <footer className="border-t border-white/10 py-8 text-center text-sm text-slate-300">
-        © {new Date().getFullYear()} {profile.name}
+        <p>© {new Date().getFullYear()} {profile.name}</p>
+        <p className="mx-auto mt-3 max-w-3xl px-4">
+          Background photos on{" "}
+          <a href="https://unsplash.com" target="_blank" rel="noopener noreferrer" className={`rounded underline hover:text-white ${focus}`}>
+            Unsplash<span className="sr-only"> (opens in new tab)</span>
+          </a>
+          :{" "}
+          {photoCredits.map((c, i) => (
+            <span key={c.id}>
+              {i > 0 && " · "}
+              {c.use} by{" "}
+              <a
+                href={`https://unsplash.com/photos/${c.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`rounded underline hover:text-white ${focus}`}
+              >
+                {c.photographer}
+                <span className="sr-only"> (opens in new tab)</span>
+              </a>
+            </span>
+          ))}
+        </p>
       </footer>
     </>
   );

@@ -15,6 +15,10 @@ npm run dev
 npm run build   # static site in ./out
 ```
 
+## Image credits
+
+Background photos are from [Unsplash](https://unsplash.com) and credited in the site footer (`photoCredits` in `app/page.tsx`). When adding a photo, keep the photographer's name and photo ID from the original filename (`name-PHOTOID-unsplash.jpg`) and add an entry there. Project screenshots and the testimonial portrait are the author's own work or supplied by the person pictured.
+
 ## Testing & accessibility
 
 ```bash
