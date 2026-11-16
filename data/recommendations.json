@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Gus Ford",
+    "role": "Former Vice President of Web Marketing",
+    "company": "FXCM 2012-2017",
+    "image": "/img/gus-ford.jpg",
+    "quote": "I’ve had the privilege of working with Tal Hollingsworth while leading the web marketing team at FXCM. Tal was amazing to work with due to his strong work ethic, and willingness to share his skill set and processes with his entire team. I know I learned so much about JavaScript and efficient work flow best practices from working closely with Tal. He is a dedicated teammate and natural leader, that is sure to be an asset to any firm. He has strong skills using HTML, CSS, and JavaScript for all project types and sizes with high levels of complexity and managing tight and competing deadlines. While working together, we used collaboration tools such as Smart Sheets and Jira, as well as a custom tool that Tal built for the entire web marketing department to save time and reduce emails."
+  },
+  {
+    "name": "Monika Rut-Koroglu",
+    "role": "Director of Analytics and Optimization",
+    "company": "FXCM",
+    "image": "/img/monika-rut-koroglu.jpg",
+    "quote": "Tal is a humble (but not shy) and creative beast! Have worked with Tal on many projects ranging from group collaborated website optimization changes to specific projects involving specific form or page functionalities. Tal is always full of ideas that seems so obvious but only after Tal proposes them. His creativity and problem solving skills are to be matched by few, statement applying to his web dev capabilities but also personal interests and hobbies (super cool). Tal is a “beast” because he is fast, precise and thinks quickly on his feet.  His personality and positive outlook is contagious and he is an invaluable asset for any front end dev team, he defines his role and fit real well, real fast."
+  }
+]
