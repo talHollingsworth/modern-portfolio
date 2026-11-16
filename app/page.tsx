@@ -1,3 +1,4 @@
+import Card from "@/components/Card";
 import Nav from "@/components/Nav";
 import Parallax from "@/components/Parallax";
 import { asset, profile, type CaseStudy, type Project } from "@/lib/profile";
@@ -214,13 +215,19 @@ export default function Home() {
           </figure>
         </section>
 
-        <section id="experience" aria-labelledby="experience-title" className="bg-slate-900/60 py-24">
-          <div className="mx-auto max-w-4xl px-4">
+        <section id="experience" aria-labelledby="experience-title" className="relative overflow-hidden bg-slate-950 py-24">
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+            <Parallax speed={0.2} className="absolute inset-x-0 -inset-y-80">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={asset("/img/experience-bluebonnets.jpg")} alt="" loading="lazy" className="h-full w-full object-cover opacity-10" />
+            </Parallax>
+          </div>
+          <div className="relative mx-auto max-w-4xl px-4">
             <h2 id="experience-title" className={heading}>Experience</h2>
-            <ol className="mt-10 space-y-12">
-              {profile.experience.map((j) => (
-                <li key={j.title + j.start}>
-                  <h3 className="text-2xl font-semibold text-white">{j.title}</h3>
+            <ol className="mt-10 space-y-8">
+              {profile.experience.map((j, i) => (
+                <Card as="li" key={j.title + j.start} labelledBy={`job-${i}`}>
+                  <h3 id={`job-${i}`} className="text-2xl font-semibold text-white">{j.title}</h3>
                   <p className="mt-1 text-lg text-blue-300">
                     {j.company} · <time>{j.start}</time> – {j.end === "present" ? "present" : <time>{j.end}</time>}
                   </p>
@@ -229,7 +236,7 @@ export default function Home() {
                       <li key={b}>{b}</li>
                     ))}
                   </ul>
-                </li>
+                </Card>
               ))}
             </ol>
           </div>
