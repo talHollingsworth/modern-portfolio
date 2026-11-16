@@ -1,1 +1,156 @@
-{}
+{
+  "headline": "Senior Web Developer | Frontend Engineer | Next.js, Accessibility, Fintech Funnels",
+  "summary": "I have spent the last few years working for Bank of America Merrill Lynch as a front end developer on the marketing web team.  As part of this team I honed my development skills utilizing HTML, CSS, JavaScript, jQuery, MVC, Node.js and the proprietary Sparta framework, which incorporates elements of Vue.js, to create pixel perfect webpages, landing pages and templates.   On the design side I continued to grow in my expertise with the Adobe Creative Suite, including Adobe Photoshop, Adobe Illustrator and Adobe InDesign.    I'm also an experienced illustrator having worked with a variety of mediums from acrylics to oils, painting digitally, and in my spare time I paint miniatures for commission.  I am very knowledgeable in regards to the design process and I'm capable of taking a concept from Ideation to completion using thumbnails, prototyping and comps.  I also have experience with heuristic evaluations and usability testing.  Most importantly I am a father of two beautiful daughters, and a United States Marine.    Semper Fidelis  Specialties: Tal Hollingsworth: front end web development, Sparta, Vue.js, HELIX, ADA, HTML5, CSS3, JavaScript, jQuery, PHP, WordPress, CMB2, TWIG, wireframes, color comps, user interface design, user experience, usability testing, heuristic evaluations, Adobe Photoshop, Adobe Illustrator, graphic design, digital painting",
+  "skills": [
+    "TypeScript",
+    "Search Engine Optimization (SEO)",
+    "Web Content Accessibility Guidelines (WCAG)",
+    "Next.js",
+    "React.js",
+    "Adobe Creative Suite",
+    "Web Design",
+    "Graphic Design",
+    "Illustration",
+    "Layout",
+    "Logo Design",
+    "Graphics",
+    "User Interface Design",
+    "User Experience",
+    "Digital Illustration",
+    "Art",
+    "Image Manipulation",
+    "Vector Illustration",
+    "Front-end",
+    "Information Architecture",
+    "Typography",
+    "Branding & Identity",
+    "Storyboarding",
+    "User Interface",
+    "Version Control",
+    "Digital Printing",
+    "Wide Format Printing",
+    "Painting",
+    "Wireframes",
+    "Photoshop",
+    "Illustrator",
+    "WordPress",
+    "HTML 5",
+    "InDesign",
+    "CSS 3",
+    "javascript",
+    "jQuery",
+    "phpMyAdmin",
+    "Mac",
+    "CSS3",
+    "CMS",
+    "JSP development",
+    "Visual Communication",
+    "Miniatures",
+    "Hand Finishing",
+    "Perforce",
+    "JMX",
+    "Multilingual Web Site Design",
+    "Reprographics",
+    "Xerox Printers",
+    "Color Comps",
+    "Heuristic Evaluation",
+    "CSS Sprites",
+    "ADA Compliance",
+    "Responsive Web Design"
+  ],
+  "experience": [
+    {
+      "title": "Senior Web Developer / Frontend Engineer",
+      "company": "Reprise Financial",
+      "start": "Jan 2022",
+      "end": "present",
+      "bullets": [
+        "I'm a frontend engineer on the application development team, building the customer-facing loan funnels and the CMS and platform tooling behind them.  This year I rebuilt the loan offer experience as a single responsive screen. It has priority-sorted offer cards (Best, Better, Good) and fallback logic that keeps customers in the funnel even when they don't pick an offer. I also built custom partner-referral journeys that move approved customers straight into mobile phone verification. I modernized electronic income verification with bank routing validation and clearer error states. To let marketing work independently, I built code-defined global modals linked to CMS rich-text dropdowns, so disclosures can be updated without an engineering deploy.  On the quality side, I led our WCAG 2.1 AA accessibility effort, covering skip-link navigation, reduced-motion support, ARIA states, and screen-reader alerts. I also fixed canonical-origin conflicts across multi-domain funnels. I standardized automated testing with Playwright. I wrote the main architecture documentation for our Next.js, PostgreSQL, and Drizzle ORM stack so new teammates ramp up faster.  I work closely with QA to validate edge cases across complex offer combinations. I also partner with product and marketing to ship compliant legal disclosures and fast funnel iterations."
+      ]
+    },
+    {
+      "title": "Freelance Web Developer",
+      "company": "Dallas / Forth Worth Area Small Businesses",
+      "start": "Apr 2013",
+      "end": "present",
+      "bullets": [
+        "www.turnerleatherworks.com - 2014  I am creating a responsive e-commerce site for a client who started a small business where he creates custom leather-made products.  This site was created with HTML5, CSS3, PHP.  It will eventually contain jQuery gallery functionality, paypal integration, as well be fully responsive.  D.A. Gove Gourmet - 2013  I created this concept site for a client who is starting a small business selling his unique brand of homemade chili to local vendors and online. This site was created using HTML5, CSS3 for styling. This site also has a nutritional information feature that was created with PHP and a MySQL database.  www.danielbernardgray.com - 2013  This site was created for a client who approached me and needed a way to display his artwork online. My client hands out business cards at his gallery showings, which drives potential clients to his website and they can then contact him to negotiate purchasing artwork. I wanted to expirement with CSS3 functionality with this website, and the gallery was created strictly using CSS3 and HTML5.  www.hollingsworthminiatures.com - 2013  I created this website as a project for my Interactive Motion design class and also to satisfy a need for my small business. I decided to implement WordPress as a CMS and try my hand at creating a child theme.  Specialties: Tal Hollingsworth: front end web development, HTML5, CSS3, JavaScript, jQuery, wireframes, color comps, user interface design, user experience, usability testing, heuristic evaluations, Adobe Photoshop, Adobe Illustrator, graphic design, digital painting"
+      ]
+    },
+    {
+      "title": "Senior Front End Engineer - Assistant Vice President Cnslt - Apps Prog",
+      "company": "Bank of America Merrill Lynch",
+      "start": "Jun 2019",
+      "end": "Aug 2022",
+      "bullets": [
+        "As a front end developer for Bank of America Merrill Lynch I have assisted in efforts to modernize existing codebases, projects to provide improved experiences and functionalities for clients, and updating our web products to comply with current ADA standards to provide increased usability and performance for all users.  I have learned to work with teams utilizing Java, .NET, the proprietary Sparta framework which incorporates elements of vue.js.  I have also participated in Bank of America Merrill Lynch's GTO University program where I have completed coursework and earned badges for Business Acumen, Client Experience, Disruptive Innovation and continue to study other topics such as cryptocurrencies and ADA."
+      ]
+    },
+    {
+      "title": "Mid-Level Front End Developer",
+      "company": "Forex Capitol Markets",
+      "start": "Jan 2018",
+      "end": "May 2019",
+      "bullets": [
+        "As a mid-level front end developer my responsibilities include the same responsibilities as my junior dev responsibilities, in addition to overseeing higher level projects such as new site creation ( eg FXCM Pro ), coding single or multi page designs involving complex functionality, working with external teams on multi-team projects, instruction and training of new hires, assistance in the interview process, code review, developing new templates and modules for our FXCM frameworks, and more in depth involvement in project direction.  Specialties: Tal Hollingsworth: front end web development, HTML5, CSS3, JSP, JMX, CMS, CSS Sprites, JavaScript, jQuery, PHP, WordPress, CMB2, TWIG, wireframes, color comps, user interface design, user experience, usability testing, heuristic evaluations, Adobe Photoshop, Adobe Illustrator, graphic design, digital painting  www.fxcm.com www.fxcm.com/uk/ www.fxcm.com/de/ www.fxcm.com/fr/ www.fxcm.com/ca/ www.fxcm.com/markets/ www.fxcm.com/it/ www.fxcm.com/au/ www.fxcm.com/za/ www.fxcm.com/br/ www.fxcm.com/es/ www.fxcm.com/pro/"
+      ]
+    },
+    {
+      "title": "Providing Custom Painting and Sculpting Services",
+      "company": "Hollingsworth Miniatures",
+      "start": "Mar 2013",
+      "end": "Dec 2018",
+      "bullets": [
+        "I am the owner of Hollingsworth Miniatures, a collectible and miniature painting service.  I was spending so much of my time coding for school I wanted to  do something hands on to stay fresh creatively.  I always enjoyed painting miniatures and I was constantly being approached to work on commissions for people so I started Hollingsworth Miniatures.  I provide custom painting, magnetizing, basing, and sculpture  services to a very wide variety of projects.  I do all of the administrative work myself, including invoicing and taxes.  I also created my  own website which uses WordPress as a Content Management System so I could showcase some of my work online and begin to build a social media presence.  Specialties: Tal Hollingsworth: front end web development, HTML5, CSS3, JavaScript, jQuery, wireframes, color comps, user interface design, user experience, usability testing, heuristic evaluations, Adobe Photoshop, Adobe Illustrator, graphic design, digital painting, painting, sculpting, magnetization, art"
+      ]
+    },
+    {
+      "title": "Junior Front End Developer",
+      "company": "FXCM",
+      "start": "May 2014",
+      "end": "Dec 2017",
+      "bullets": [
+        "As a junior front end developer my responsibilities include maintaining compliance for financial regulations, ensuring pixel perfect layout utilizing HTML5, CSS, JSP, Java tiles, and XML, editing sprites, working with PerForce verion control software to manage version control across a multitude of languages, and helping to create and maintain company branding initiatives across a multitude of websites.  Specialties: Tal Hollingsworth: front end web development, HTML5, CSS3, JSP, JMX, CMS, CSS Sprites, JavaScript, jQuery, wireframes, color comps, user interface design, user experience, usability testing, heuristic evaluations, Adobe Photoshop, Adobe Illustrator, graphic design, digital painting  www.fxcm.com www.fxcm.com/uk/ www.fxcm.com/de/ www.fxcm.com/markets/ www.fxcm.com/it/ www.forextrading.au.com"
+      ]
+    },
+    {
+      "title": "Printing and Graphic Design",
+      "company": "Office Depot",
+      "start": "Jan 2012",
+      "end": "Aug 2013",
+      "bullets": [
+        "I made the decision to transition out of the military and pursue a career in web development and while going to school full time I went back to my roots as a graphic designer and lithographer to help pay the bills..    In a lot of ways Office Depot was even more challenging than my previous job in a number of ways.  It required me to assess jobs, provide graphic design services and then finishing, in a tight crunch all by myself, as there was only ever one copy and print specialist scheduled at a time.  It was very challenging and was an opportunity to put my skills to the test.  Specialties: Tal Hollingsworth: front end web development, HTML5, CSS3, JavaScript, jQuery, wireframes, color comps, user interface design, user experience, usability testing, heuristic evaluations, Adobe Photoshop, Adobe Illustrator, graphic design, digital painting, painting, sculpting, magnetization, art"
+      ]
+    },
+    {
+      "title": "Printing and Graphic Design",
+      "company": "United States Marine Corps",
+      "start": "Apr 2007",
+      "end": "Dec 2011",
+      "bullets": [
+        "As a Marine stationed aboard Quantico, VA,  I reported in to the Command Visual Information Center.  As a junior Marine my job consisted of hands on print work, including copies, printing, mounting, laminating et cetera.  Progressing up to the Non-Commissioned officer I was placed in a leadership role and was responsible for ensuring our mission was accomplished.  I was in charge of up to eight individual junior Marines on any given day and would divvy out jobs, ensure quality control, and handle any customer situations that would arrive.  I spent a large portion of my overall time as a graphic designer for the Marine Corps creating retirement pamphlets, training manuals, informational collateral, posters, banners and a large assortment of other projects.  Also, with my background as an artist I was in a unique role where I actively created digital paintings for advertisements.  I also was privileged to work with the Commandant of the Marine Corps as well as the Sergeant Major of the Marine Corps painting and providing digital layout for christmas cards that were printed and mailed out to members of congress and other high ranking military professionals.  Specialties: Tal Hollingsworth: front end web development, HTML5, CSS3, JavaScript, jQuery, wireframes, color comps, user interface design, user experience, usability testing, heuristic evaluations, Adobe Photoshop, Adobe Illustrator, graphic design, digital painting, painting, sculpting, magnetization, art"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "school": "The Art Institute of Dallas",
+      "degree": "Bachelor's Degree",
+      "start": "2012",
+      "end": "2014"
+    },
+    {
+      "school": "The Art Institute of Dallas",
+      "degree": "Associate's Degree",
+      "start": "2000",
+      "end": "2002"
+    },
+    {
+      "school": "Wylie High School",
+      "degree": "High School Diploma",
+      "start": "1996",
+      "end": "2000"
+    }
+  ],
+  "syncedAt": "2026-11-16T17:12:23.507Z"
+}

@@ -19,9 +19,12 @@ npm run build   # static site in ./out
 
 LinkedIn has no public API for reading your own profile, so the site syncs from LinkedIn's official data export:
 
-1. LinkedIn → Settings & Privacy → Data privacy → **Get a copy of your data** → select Positions, Education, Skills, Profile → download and unzip.
-2. Run `npm run sync:linkedin -- path/to/unzipped-export`.
-3. Commit the updated `data/linkedin.json`; pushing to `main` redeploys.
+1. In LinkedIn, go to **Settings & Privacy → Data privacy → Get a copy of your data**.
+2. Select **Profile**, **Experience** (or **Positions**), **Education**, and **Skills** when LinkedIn offers individual data-file choices. A **Profile**-only archive contains `Profile.csv` and updates only the headline and summary.
+3. If those individual choices are not available, request the larger/full archive instead. LinkedIn may delay the download; wait for its email before downloading and unzipping the archive.
+4. Confirm the unzipped directory contains `Profile.csv`, `Positions.csv`, `Education.csv`, and `Skills.csv`. Missing files are skipped, so the corresponding fields remain empty.
+5. Run `npm run sync:linkedin -- path/to/unzipped-export`.
+6. Commit the updated `data/linkedin.json`; pushing to `main` redeploys.
 
 Fields present in `data/linkedin.json` (headline, summary, skills, experience, education) override the defaults in `data/profile.json`. Reset the file to `{}` to revert.
 
