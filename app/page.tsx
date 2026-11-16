@@ -109,6 +109,9 @@ export default function Home() {
       <main id="main">
         <section id="top" aria-labelledby="hero-title" className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-b from-slate-950 via-indigo-950 to-slate-900">
           <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={asset("/img/hero-texas-flag.jpg")} alt="" className="absolute inset-0 h-full w-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-indigo-950/65 to-slate-950/85" />
             <Parallax speed={0.5} className="absolute -left-24 top-1/4">
               <div className="h-96 w-96 rounded-full bg-violet-600/30 blur-3xl" />
             </Parallax>
