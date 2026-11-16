@@ -167,7 +167,7 @@ export default function Home() {
           <div aria-hidden="true" className="pointer-events-none absolute inset-0">
             <Parallax speed={0.2} className="absolute inset-x-0 -inset-y-80">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={asset("/img/case-studies-code.jpg")} alt="" loading="lazy" className="h-full w-full object-cover opacity-25" />
+              <img src={asset("/img/case-studies-code.jpg")} alt="" loading="lazy" className="h-full w-full object-cover opacity-15" />
             </Parallax>
           </div>
           <div className="relative mx-auto max-w-6xl px-4">
