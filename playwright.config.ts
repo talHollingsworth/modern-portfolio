@@ -15,6 +15,10 @@ export default defineConfig({
   // Each project is one viewport; every spec runs once per project, which is
   // what gives us responsive coverage without duplicating tests.
   projects: [
+    // Foldable cover screen: very short viewport (360x298) that stresses vertical layout.
+    { name: "foldable-cover", use: { ...devices["Galaxy Z Flip 6 Cover"] } },
+    // Narrowest device available in Playwright's registry (320px, the WCAG reflow width).
+    { name: "small-phone", use: { ...devices["Galaxy S9+"] } },
     { name: "mobile", use: { ...devices["Pixel 5"] } },
     { name: "tablet", use: { ...devices["iPad (gen 7)"], browserName: "chromium" } },
     { name: "desktop", use: { ...devices["Desktop Chrome"], viewport: { width: 1440, height: 900 } } },

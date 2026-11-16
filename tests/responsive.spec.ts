@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 
 // These run once per viewport project defined in playwright.config.ts
-// (mobile, tablet, desktop).
+// (foldable-cover, small-phone, mobile, tablet, desktop).
 
 test("no horizontal scrolling", async ({ page }) => {
   await page.goto("/");
