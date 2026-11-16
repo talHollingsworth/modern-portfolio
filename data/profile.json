@@ -5,6 +5,19 @@
   "resumePdf": "/pdf/tal-hollingsworth-resume-portfolio.pdf",
   "projects": [
     {
+      "title": "Reprise Financial",
+      "role": "Frontend Development",
+      "description": "Customer-facing loan acquisition funnels and the CMS tooling behind them: a single-screen responsive offers experience, partner-referral journeys, and WCAG 2.1 AA accessibility work.",
+      "image": "/img/reprisefinancial.jpg",
+      "alt": "Reprise Financial homepage",
+      "links": [
+        {
+          "label": "www.reprisefinancial.com",
+          "href": "https://www.reprisefinancial.com"
+        }
+      ]
+    },
+    {
       "title": "FXCM Pro",
       "role": "Design + Development",
       "image": "/img/fxcm-pro.jpg",
