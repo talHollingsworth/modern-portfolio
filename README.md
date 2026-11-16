@@ -30,4 +30,4 @@ Fields present in `data/linkedin.json` (headline, summary, skills, experience, e
 
 ## Deploy
 
-`.github/workflows/deploy.yml` builds and publishes to GitHub Pages on every push to `main`. In the repo, enable **Settings → Pages → Source: GitHub Actions**. For a custom domain or a `<user>.github.io` repo, remove the `BASE_PATH` env in the workflow.
+`.github/workflows/deploy.yml` builds and publishes to GitHub Pages on every push to `main`. This repo is `talHollingsworth.github.io`, so the site is served from the root and no `BASE_PATH` is set. **Settings → Pages → Source** must be **GitHub Actions**. If you host it under a repo sub-path instead, set `BASE_PATH` (e.g. `/repo-name`) in the build step.
