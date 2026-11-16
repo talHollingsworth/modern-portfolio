@@ -1,6 +1,6 @@
 import Nav from "@/components/Nav";
 import Parallax from "@/components/Parallax";
-import { asset, profile, type Project } from "@/lib/profile";
+import { asset, profile, type CaseStudy, type Project } from "@/lib/profile";
 
 const focus =
   "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-300";
@@ -57,6 +57,44 @@ function ProjectCard({ p, index }: { p: Project; index: number }) {
   );
 }
 
+function CaseStudyCard({ study, index }: { study: CaseStudy; index: number }) {
+  const id = `case-study-${index}`;
+  return (
+    <li>
+      <article aria-labelledby={id} className="rounded-2xl border border-white/10 bg-slate-950/60 p-6">
+        <p className="text-sm font-semibold uppercase tracking-wider text-violet-300">Case study {index + 1}</p>
+        <h3 id={id} className="mt-2 text-2xl font-semibold text-white">{study.title}</h3>
+        <p className="mt-2 text-slate-300">{study.role}</p>
+        <dl className="mt-6 space-y-4 text-slate-200">
+          <div>
+            <dt className="font-semibold text-white">Challenge</dt>
+            <dd className="mt-1 leading-relaxed">{study.challenge}</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-white">Approach</dt>
+            <dd className="mt-1 leading-relaxed">{study.approach}</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-white">Accessibility & performance</dt>
+            <dd className="mt-1 leading-relaxed">{study.accessibility}</dd>
+          </div>
+          <div>
+            <dt className="font-semibold text-white">Outcome</dt>
+            <dd className="mt-1 leading-relaxed">{study.outcome}</dd>
+          </div>
+        </dl>
+        <ul aria-label="Technologies used" className="mt-6 flex flex-wrap gap-2">
+          {study.technologies.map((technology) => (
+            <li key={technology} className="rounded-full bg-slate-800 px-3 py-1 text-sm text-violet-200">
+              {technology}
+            </li>
+          ))}
+        </ul>
+      </article>
+    </li>
+  );
+}
+
 export default function Home() {
   const t = profile.testimonial;
   return (
@@ -88,7 +126,7 @@ export default function Home() {
             </h1>
             <p className="mt-4 text-2xl text-slate-200 sm:text-3xl">{profile.title}</p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <a href="#projects" className={`rounded-full bg-violet-300 px-6 py-3 font-semibold text-slate-950 hover:bg-violet-200 ${focus}`}>
+              <a href="#case-studies" className={`rounded-full bg-violet-300 px-6 py-3 font-semibold text-slate-950 hover:bg-violet-200 ${focus}`}>
                 View my work
               </a>
               <a href={asset(profile.resumePdf)} className={`rounded-full border border-white/40 px-6 py-3 font-semibold text-white hover:bg-white/10 ${focus}`}>
@@ -121,6 +159,21 @@ export default function Home() {
               </li>
             ))}
           </ul>
+        </section>
+
+        <section id="case-studies" aria-labelledby="case-studies-title" className="bg-slate-900/60 py-24">
+          <div className="mx-auto max-w-6xl px-4">
+            <p className="text-sm font-semibold uppercase tracking-wider text-violet-300">Selected work</p>
+            <h2 id="case-studies-title" className={`mt-2 ${heading}`}>Engineering case studies</h2>
+            <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-200">
+              Selected work from regulated financial-services products. Details are anonymized to protect confidential systems and customer information.
+            </p>
+            <ul className="mt-10 grid gap-8 lg:grid-cols-2">
+              {profile.caseStudies.map((study, index) => (
+                <CaseStudyCard key={study.title} study={study} index={index} />
+              ))}
+            </ul>
+          </div>
         </section>
 
         <section id="projects" aria-labelledby="projects-title" className="relative overflow-hidden bg-slate-900/60 py-24">
