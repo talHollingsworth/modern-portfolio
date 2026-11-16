@@ -27,6 +27,9 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run build
+      # Responsive + WCAG tests; a failure blocks the deploy.
+      - run: npx playwright install --with-deps chromium
+      - run: npm test
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out

@@ -15,6 +15,19 @@ npm run dev
 npm run build   # static site in ./out
 ```
 
+## Testing & accessibility
+
+```bash
+npx playwright install chromium   # one-time browser download
+npm test                # all Playwright tests (builds and serves ./out)
+npm run test:a11y       # axe-core WCAG 2.0/2.1 A + AA scan (ADA compliance)
+npm run test:responsive # layout, nav and touch-target checks
+npm run test:ui         # interactive Playwright runner
+npm run storybook       # component previews with the a11y panel (port 6006)
+```
+
+Every spec runs at three viewports (mobile, tablet, desktop) defined in `playwright.config.ts`. CI runs the tests before deploying, so a failing test blocks the release. Automated scans catch only part of WCAG, so keep doing manual keyboard and screen-reader checks.
+
 ## Keeping LinkedIn data up to date
 
 LinkedIn has no public API for reading your own profile, so the site syncs from LinkedIn's official data export:
