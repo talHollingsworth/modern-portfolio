@@ -40,14 +40,38 @@ export const metadata: Metadata = {
 // Browser UI color on mobile
 export const viewport: Viewport = { themeColor: "#020617" };
 
+// GitHub Pages can't send response headers, so the CSP is delivered as a <meta> tag. Inline
+// scripts/styles are required by Next's static export; everything else is locked to this origin.
+// Production only: the dev server needs eval for hot reload.
+const csp = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline'",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data:",
+  "font-src 'self' data:",
+  "connect-src 'self'",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'none'",
+].join("; ");
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth antialiased">
+      <head>
+        {process.env.NODE_ENV === "production" && (
+          <meta httpEquiv="Content-Security-Policy" content={csp} />
+        )}
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+      </head>
       <body className="bg-slate-950 text-slate-100">
-        {/* Structured data: tells search engines who the site is about */}
+        {/* Structured data: tells search engines who the site is about. "<" is escaped so
+            profile text can never close the script tag. */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c"),
+          }}
         />
         {children}
       </body>

@@ -77,6 +77,8 @@ console.log(`Wrote data/linkedin.json: ${out.experience.length} jobs, ${out.educ
 // existing entries (matched by name, case-insensitive) are kept untouched so hand-added
 // portraits and edited text survive; only recommenders not already listed are appended.
 // Skipped when the export has no recommendations file, and hidden/pending ones are ignored.
+// Security: synced fields are untrusted text. The site renders them only as React text nodes
+// (auto-escaped); never use them to build an href/src without allowing only https: URLs.
 const received = read("Recommendations_Received.csv").filter(
   (r) => !r["Status"] || r["Status"].toUpperCase() === "VISIBLE",
 );
