@@ -118,9 +118,6 @@ export default function Home() {
             <Parallax speed={0.3} className="absolute -right-24 top-10">
               <div className="h-80 w-80 rounded-full bg-red-600/20 blur-3xl" />
             </Parallax>
-            <Parallax speed={0.15} className="absolute bottom-0 left-1/3">
-              <div className="h-64 w-64 rotate-45 rounded-3xl border border-red-400/30" />
-            </Parallax>
           </div>
           <div className="relative mx-auto w-full max-w-6xl px-4 pt-24 sm:pt-28">
             <p className="text-lg text-blue-300">Hi, I’m</p>
