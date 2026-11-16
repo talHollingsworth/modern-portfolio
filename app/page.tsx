@@ -62,7 +62,7 @@ function CaseStudyCard({ study, index }: { study: CaseStudy; index: number }) {
   const id = `case-study-${index}`;
   return (
     <li>
-      <article aria-labelledby={id} className="rounded-2xl border border-white/10 bg-slate-950/60 p-6">
+      <article aria-labelledby={id} className="rounded-2xl border border-white/10 bg-slate-900 p-6">
         <p className="text-sm font-semibold uppercase tracking-wider text-red-400">Case study {index + 1}</p>
         <h3 id={id} className="mt-2 text-2xl font-semibold text-white">{study.title}</h3>
         <p className="mt-2 text-slate-300">{study.role}</p>
