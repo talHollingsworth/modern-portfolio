@@ -163,8 +163,14 @@ export default function Home() {
           </ul>
         </section>
 
-        <section id="case-studies" aria-labelledby="case-studies-title" className="bg-slate-900/60 py-24">
-          <div className="mx-auto max-w-6xl px-4">
+        <section id="case-studies" aria-labelledby="case-studies-title" className="relative overflow-hidden bg-slate-950 py-24">
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+            <Parallax speed={0.2} className="absolute inset-x-0 -inset-y-80">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={asset("/img/case-studies-code.jpg")} alt="" loading="lazy" className="h-full w-full object-cover opacity-25" />
+            </Parallax>
+          </div>
+          <div className="relative mx-auto max-w-6xl px-4">
             <p className="text-sm font-semibold uppercase tracking-wider text-red-400">Selected work</p>
             <h2 id="case-studies-title" className={`mt-2 ${heading}`}>Engineering case studies</h2>
             <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-200">
