@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Modern Portfolio
 
-## Getting Started
+Portfolio site for Tal Hollingsworth built with Next.js (App Router, static export), React, TypeScript and Tailwind CSS.
 
-First, run the development server:
+- **Parallax scrolling**: `components/Parallax.tsx` (rAF-throttled, automatically disabled for `prefers-reduced-motion`).
+- **Responsive**: mobile-first Tailwind layout with a collapsible nav.
+- **Accessible (WCAG 2.2 AA target)**: skip link, landmarks, labelled sections, visible focus, 44px touch targets, alt text, reduced-motion support. Verified with axe-core (0 violations).
+- **Content**: `data/profile.json` holds all content migrated from the previous Jekyll site.
+
+## Develop
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build   # static site in ./out
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Keeping LinkedIn data up to date
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+LinkedIn has no public API for reading your own profile, so the site syncs from LinkedIn's official data export:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. LinkedIn → Settings & Privacy → Data privacy → **Get a copy of your data** → select Positions, Education, Skills, Profile → download and unzip.
+2. Run `npm run sync:linkedin -- path/to/unzipped-export`.
+3. Commit the updated `data/linkedin.json`; pushing to `main` redeploys.
 
-## Learn More
+Fields present in `data/linkedin.json` (headline, summary, skills, experience, education) override the defaults in `data/profile.json`. Reset the file to `{}` to revert.
 
-To learn more about Next.js, take a look at the following resources:
+## Deploy
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`.github/workflows/deploy.yml` builds and publishes to GitHub Pages on every push to `main`. In the repo, enable **Settings → Pages → Source: GitHub Actions**. For a custom domain or a `<user>.github.io` repo, remove the `BASE_PATH` env in the workflow.
