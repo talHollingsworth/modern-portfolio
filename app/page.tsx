@@ -152,18 +152,6 @@ export default function Home() {
         <section id="about" aria-labelledby="about-title" className="mx-auto max-w-6xl px-4 py-24">
           <h2 id="about-title" className={`${heading} text-center`}>About</h2>
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-200">{profile.summary}</p>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {profile.skillSets.map((s) => (
-              <div key={s.title} className="rounded-2xl border border-white/10 bg-slate-900 p-6">
-                <h3 className="text-xl font-semibold text-blue-300">{s.title}</h3>
-                <ul className="mt-3 space-y-1 text-slate-200">
-                  {s.items.map((i) => (
-                    <li key={i}>{i}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
           <h3 className="mt-12 text-2xl font-semibold text-white">Skills</h3>
           <ul className="mt-4 flex flex-wrap gap-3">
             {profile.skills.map((s) => (
