@@ -62,28 +62,38 @@ function CaseStudyCard({ study, index }: { study: CaseStudy; index: number }) {
   const id = `case-study-${index}`;
   return (
     <li>
-      <article aria-labelledby={id} className="rounded-2xl border border-white/10 bg-slate-900 p-6">
+      <article aria-labelledby={id} className="h-full rounded-2xl border border-l-4 border-white/10 border-l-blue-400 bg-slate-900 p-6 sm:p-8">
         <p className="text-sm font-semibold uppercase tracking-wider text-red-400">Case study {index + 1}</p>
-        <h3 id={id} className="mt-2 text-2xl font-semibold text-white">{study.title}</h3>
+        <h3 id={id} className="mt-3 text-2xl font-semibold text-white">{study.title}</h3>
         <p className="mt-2 text-slate-300">{study.role}</p>
-        <dl className="mt-6 space-y-4 text-slate-200">
+        <dl className="mt-8 space-y-6 text-slate-100">
           <div>
-            <dt className="font-semibold text-white">Challenge</dt>
-            <dd className="mt-1 leading-relaxed">{study.challenge}</dd>
+            <dt className="text-sm font-semibold uppercase tracking-wider text-blue-300">Challenge</dt>
+            <dd className="mt-2 leading-relaxed">{study.challenge}</dd>
           </div>
           <div>
-            <dt className="font-semibold text-white">Approach</dt>
-            <dd className="mt-1 leading-relaxed">{study.approach}</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-white">Accessibility & performance</dt>
-            <dd className="mt-1 leading-relaxed">{study.accessibility}</dd>
-          </div>
-          <div>
-            <dt className="font-semibold text-white">Outcome</dt>
-            <dd className="mt-1 leading-relaxed">{study.outcome}</dd>
+            <dt className="text-sm font-semibold uppercase tracking-wider text-blue-300">Outcome</dt>
+            <dd className="mt-2 leading-relaxed">{study.outcome}</dd>
           </div>
         </dl>
+        <details className="group mt-6 border-t border-white/10 pt-4">
+          <summary className={`flex min-h-11 cursor-pointer list-none items-center justify-between rounded font-semibold text-blue-300 hover:text-blue-200 [&::-webkit-details-marker]:hidden ${focus}`}>
+            Approach, accessibility &amp; performance
+            <svg aria-hidden="true" viewBox="0 0 20 20" className="h-5 w-5 fill-current transition-transform group-open:rotate-180">
+              <path d="M5.5 7.5 10 12l4.5-4.5-1.4-1.4L10 9.2 6.9 6.1z" />
+            </svg>
+          </summary>
+          <dl className="mt-4 space-y-6 text-slate-100">
+            <div>
+              <dt className="text-sm font-semibold uppercase tracking-wider text-blue-300">Approach</dt>
+              <dd className="mt-2 leading-relaxed">{study.approach}</dd>
+            </div>
+            <div>
+              <dt className="text-sm font-semibold uppercase tracking-wider text-blue-300">Accessibility &amp; performance</dt>
+              <dd className="mt-2 leading-relaxed">{study.accessibility}</dd>
+            </div>
+          </dl>
+        </details>
         <ul aria-label="Technologies used" className="mt-6 flex flex-wrap gap-2">
           {study.technologies.map((technology) => (
             <li key={technology} className="rounded-full bg-slate-800 px-3 py-1 text-sm text-blue-200">
@@ -168,7 +178,7 @@ export default function Home() {
           <div aria-hidden="true" className="pointer-events-none absolute inset-0">
             <Parallax speed={0.2} className="absolute inset-x-0 -inset-y-80">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={asset("/img/case-studies-code.jpg")} alt="" loading="lazy" className="h-full w-full object-cover opacity-15" />
+              <img src={asset("/img/case-studies-code.jpg")} alt="" loading="lazy" className="h-full w-full               object-cover opacity-10" />
             </Parallax>
           </div>
           <div className="relative mx-auto max-w-6xl px-4">
@@ -177,7 +187,7 @@ export default function Home() {
             <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-200">
               Selected work from regulated financial-services products. Details are anonymized to protect confidential systems and customer information.
             </p>
-            <ul className="mt-10 grid gap-8 lg:grid-cols-2">
+            <ul className="mt-10 grid gap-10 lg:grid-cols-2">
               {profile.caseStudies.map((study, index) => (
                 <CaseStudyCard key={study.title} study={study} index={index} />
               ))}
