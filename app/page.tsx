@@ -3,7 +3,7 @@ import Parallax from "@/components/Parallax";
 import { asset, profile, type CaseStudy, type Project } from "@/lib/profile";
 
 const focus =
-  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-300";
+  "focus-visible:outline-2 focus-visible:outline-offset-2   focus-visible:outline-blue-400";
 const heading = "text-3xl font-bold tracking-tight text-white sm:text-4xl";
 
 function Img({ src, alt, className }: { src: string; alt: string; className?: string }) {
@@ -32,7 +32,7 @@ function ProjectCard({ p, index }: { p: Project; index: number }) {
           <h3 id={id} className="text-xl font-semibold text-white">
             {p.title}
           </h3>
-          <p className="mt-1 text-violet-300">
+          <p className="mt-1 text-blue-300">
             <span className="font-semibold">Project role:</span> {p.role}
           </p>
           {p.description && <p className="mt-3 text-slate-300">{p.description}</p>}
@@ -43,7 +43,7 @@ function ProjectCard({ p, index }: { p: Project; index: number }) {
                   href={l.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`inline-flex min-h-11 items-center rounded-full border border-violet-300/60 px-4 py-2 text-sm text-violet-200 hover:bg-violet-300 hover:text-slate-950 ${focus}`}
+                  className={`inline-flex min-h-11 items-center rounded-full border border-blue-400/60 px-4 py-2 text-sm text-blue-200 hover:bg-blue-400 hover:text-slate-950 ${focus}`}
                 >
                   {l.label}
                   <span className="sr-only"> (opens in new tab)</span>
@@ -62,7 +62,7 @@ function CaseStudyCard({ study, index }: { study: CaseStudy; index: number }) {
   return (
     <li>
       <article aria-labelledby={id} className="rounded-2xl border border-white/10 bg-slate-950/60 p-6">
-        <p className="text-sm font-semibold uppercase tracking-wider text-violet-300">Case study {index + 1}</p>
+        <p className="text-sm font-semibold uppercase tracking-wider text-red-400">Case study {index + 1}</p>
         <h3 id={id} className="mt-2 text-2xl font-semibold text-white">{study.title}</h3>
         <p className="mt-2 text-slate-300">{study.role}</p>
         <dl className="mt-6 space-y-4 text-slate-200">
@@ -85,7 +85,7 @@ function CaseStudyCard({ study, index }: { study: CaseStudy; index: number }) {
         </dl>
         <ul aria-label="Technologies used" className="mt-6 flex flex-wrap gap-2">
           {study.technologies.map((technology) => (
-            <li key={technology} className="rounded-full bg-slate-800 px-3 py-1 text-sm text-violet-200">
+            <li key={technology} className="rounded-full bg-slate-800 px-3 py-1 text-sm text-blue-200">
               {technology}
             </li>
           ))}
@@ -107,29 +107,29 @@ export default function Home() {
       </a>
       <Nav name={profile.name} />
       <main id="main">
-        <section id="top" aria-labelledby="hero-title" className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-b from-slate-950 via-indigo-950 to-slate-900">
+        <section id="top" aria-labelledby="hero-title" className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-b from-slate-950 via-blue-950 to-slate-900">
           <div aria-hidden="true" className="pointer-events-none absolute inset-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={asset("/img/hero-texas-flag.jpg")} alt="" className="absolute inset-0 h-full w-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-indigo-950/65 to-slate-950/85" />
+            <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-blue-950/65 to-slate-950/85" />
             <Parallax speed={0.5} className="absolute -left-24 top-1/4">
-              <div className="h-96 w-96 rounded-full bg-violet-600/30 blur-3xl" />
+              <div className="h-96 w-96 rounded-full bg-blue-500/30 blur-3xl" />
             </Parallax>
             <Parallax speed={0.3} className="absolute -right-24 top-10">
-              <div className="h-80 w-80 rounded-full bg-fuchsia-500/20 blur-3xl" />
+              <div className="h-80 w-80 rounded-full bg-red-600/20 blur-3xl" />
             </Parallax>
             <Parallax speed={0.15} className="absolute bottom-0 left-1/3">
-              <div className="h-64 w-64 rotate-45 rounded-3xl border border-violet-300/20" />
+              <div className="h-64 w-64 rotate-45 rounded-3xl border border-red-400/30" />
             </Parallax>
           </div>
           <div className="relative mx-auto w-full max-w-6xl px-4 pt-20">
-            <p className="text-lg text-violet-300">Hi, I’m</p>
+            <p className="text-lg text-blue-300">Hi, I’m</p>
             <h1 id="hero-title" className="mt-2 text-5xl font-extrabold tracking-tight text-white sm:text-7xl">
               {profile.name}
             </h1>
             <p className="mt-4 text-2xl text-slate-200 sm:text-3xl">{profile.title}</p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <a href="#case-studies" className={`rounded-full bg-violet-300 px-6 py-3 font-semibold text-slate-950 hover:bg-violet-200 ${focus}`}>
+              <a href="#case-studies" className={`rounded-full bg-blue-400 px-6 py-3 font-semibold text-slate-950 hover:bg-blue-300 ${focus}`}>
                 View my work
               </a>
               <a href={asset(profile.resumePdf)} className={`rounded-full border border-white/40 px-6 py-3 font-semibold text-white hover:bg-white/10 ${focus}`}>
@@ -145,7 +145,7 @@ export default function Home() {
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {profile.skillSets.map((s) => (
               <div key={s.title} className="rounded-2xl border border-white/10 bg-slate-900 p-6">
-                <h3 className="text-xl font-semibold text-violet-300">{s.title}</h3>
+                <h3 className="text-xl font-semibold text-blue-300">{s.title}</h3>
                 <ul className="mt-3 space-y-1 text-slate-200">
                   {s.items.map((i) => (
                     <li key={i}>{i}</li>
@@ -166,7 +166,7 @@ export default function Home() {
 
         <section id="case-studies" aria-labelledby="case-studies-title" className="bg-slate-900/60 py-24">
           <div className="mx-auto max-w-6xl px-4">
-            <p className="text-sm font-semibold uppercase tracking-wider text-violet-300">Selected work</p>
+            <p className="text-sm font-semibold uppercase tracking-wider text-red-400">Selected work</p>
             <h2 id="case-studies-title" className={`mt-2 ${heading}`}>Engineering case studies</h2>
             <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-200">
               Selected work from regulated financial-services products. Details are anonymized to protect confidential systems and customer information.
@@ -182,7 +182,7 @@ export default function Home() {
         <section id="projects" aria-labelledby="projects-title" className="relative overflow-hidden bg-slate-900/60 py-24">
           <div aria-hidden="true" className="pointer-events-none absolute inset-0">
             <Parallax speed={0.35} className="absolute -right-32 top-1/3">
-              <div className="h-96 w-96 rounded-full bg-indigo-600/20 blur-3xl" />
+              <div className="h-96 w-96 rounded-full bg-blue-600/20 blur-3xl" />
             </Parallax>
           </div>
           <div className="relative mx-auto max-w-6xl px-4">
@@ -204,7 +204,7 @@ export default function Home() {
             </blockquote>
             <figcaption className="mt-4">
               <span className="block text-xl font-semibold text-white">{t.name}</span>
-              <span className="text-violet-300">{t.role}, {t.company}</span>
+              <span className="text-blue-300">{t.role}, {t.company}</span>
             </figcaption>
           </figure>
         </section>
@@ -216,7 +216,7 @@ export default function Home() {
               {profile.experience.map((j) => (
                 <li key={j.title + j.start}>
                   <h3 className="text-2xl font-semibold text-white">{j.title}</h3>
-                  <p className="mt-1 text-lg text-violet-300">
+                  <p className="mt-1 text-lg text-blue-300">
                     {j.company} · <time>{j.start}</time> – {j.end === "present" ? "present" : <time>{j.end}</time>}
                   </p>
                   <ul className="mt-4 list-disc space-y-2 pl-6 text-slate-200">
@@ -241,10 +241,10 @@ export default function Home() {
           </ul>
         </section>
 
-        <section id="contact" aria-labelledby="contact-title" className="bg-gradient-to-b from-slate-900 to-indigo-950 py-24 text-center">
+        <section id="contact" aria-labelledby="contact-title" className="bg-gradient-to-b from-slate-900 to-blue-950 py-24 text-center">
           <h2 id="contact-title" className={heading}>Let’s connect</h2>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className={`rounded-full bg-violet-300 px-6 py-3 font-semibold text-slate-950 hover:bg-violet-200 ${focus}`}>
+            <a href={profile.linkedin} target="_blank" rel="noopener noreferrer"             className={`rounded-full bg-blue-400 px-6 py-3 font-semibold text-slate-950 hover:bg-blue-300 ${focus}`}>
               LinkedIn<span className="sr-only"> (opens in new tab)</span>
             </a>
             <a href={profile.github} target="_blank" rel="noopener noreferrer" className={`rounded-full border border-white/40 px-6 py-3 font-semibold text-white hover:bg-white/10 ${focus}`}>

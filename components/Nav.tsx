@@ -14,7 +14,7 @@ const links = [
 export default function Nav({ name }: { name: string }) {
   const [open, setOpen] = useState(false);
   const link =
-    "block rounded px-3 py-2 text-slate-100 hover:text-violet-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-300";
+    "block rounded px-3 py-2 text-slate-100 hover:text-blue-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400";
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-slate-950/90 backdrop-blur">
@@ -24,7 +24,7 @@ export default function Nav({ name }: { name: string }) {
         </a>
         <button
           type="button"
-          className="rounded border border-white/30 px-3 py-2 text-slate-100 md:hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-300"
+          className="rounded border border-white/30 px-3 py-2 text-slate-100 md:hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
           aria-expanded={open}
           aria-controls="nav-links"
           onClick={() => setOpen(!open)}
