@@ -30,20 +30,24 @@ npm run test:ui         # interactive Playwright runner
 npm run storybook       # component previews with the a11y panel (port 6006)
 ```
 
-Every spec runs at three viewports (mobile, tablet, desktop) defined in `playwright.config.ts`. CI runs the tests before deploying, so a failing test blocks the release. Automated scans catch only part of WCAG, so keep doing manual keyboard and screen-reader checks.
+Every spec runs on five device profiles (foldable cover screen, small phone, mobile, tablet, desktop) defined in `playwright.config.ts`. CI runs the tests before deploying, so a failing test blocks the release. Automated scans catch only part of WCAG, so keep doing manual keyboard and screen-reader checks.
 
 ## Keeping LinkedIn data up to date
 
 LinkedIn has no public API for reading your own profile, so the site syncs from LinkedIn's official data export:
 
 1. In LinkedIn, go to **Settings & Privacy → Data privacy → Get a copy of your data**.
-2. Select **Profile**, **Experience** (or **Positions**), **Education**, and **Skills** when LinkedIn offers individual data-file choices. A **Profile**-only archive contains `Profile.csv` and updates only the headline and summary.
+2. Select **Profile**, **Experience** (or **Positions**), **Education**, **Skills** and **Recommendations** when LinkedIn offers individual data-file choices. A **Profile**-only archive contains `Profile.csv` and updates only the headline and summary.
 3. If those individual choices are not available, request the larger/full archive instead. LinkedIn may delay the download; wait for its email before downloading and unzipping the archive.
-4. Confirm the unzipped directory contains `Profile.csv`, `Positions.csv`, `Education.csv`, and `Skills.csv`. Missing files are skipped, so the corresponding fields remain empty.
+4. Confirm the unzipped directory contains `Profile.csv`, `Positions.csv`, `Education.csv`, `Skills.csv` and `Recommendations_Received.csv`. Missing files are skipped, so the corresponding fields remain empty (or unchanged, for recommendations).
 5. Run `npm run sync:linkedin -- path/to/unzipped-export`.
-6. Commit the updated `data/linkedin.json`; pushing to `main` redeploys.
+6. Commit the updated `data/linkedin.json` and `data/recommendations.json`; pushing to `main` redeploys.
 
 Fields present in `data/linkedin.json` (headline, summary, skills, experience, education) override the defaults in `data/profile.json`. Reset the file to `{}` to revert.
+
+### Recommendation carousel
+
+The Recommendations section is a carousel fed by `data/recommendations.json`. The sync **merges** into that file: recommenders already listed (matched by name) are left untouched, and new visible ones are appended. LinkedIn exports contain no portraits, so a new recommender shows an initials avatar until you add an `image` (e.g. `/img/jane-doe.jpg`, saved in `public/img/`) to their entry. You can also edit or reorder entries by hand; the sync won't overwrite them.
 
 ## Deploy
 

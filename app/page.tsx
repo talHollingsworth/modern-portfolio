@@ -1,6 +1,7 @@
 import Card from "@/components/Card";
 import Nav from "@/components/Nav";
 import Parallax from "@/components/Parallax";
+import RecommendationCarousel from "@/components/RecommendationCarousel";
 import { asset, profile, type CaseStudy, type Project } from "@/lib/profile";
 
 // Shared class strings so focus rings and section headings stay consistent.
@@ -127,7 +128,6 @@ function CaseStudyCard({ study, index }: { study: CaseStudy; index: number }) {
 // Decorative backgrounds are aria-hidden and pointer-events-none so they never
 // affect assistive tech or clicks.
 export default function Home() {
-  const t = profile.testimonial;
   return (
     <>
       {/* Keyboard users can jump past the nav; only visible when focused */}
@@ -230,19 +230,16 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Recommendation: single testimonial from profile.json */}
+        {/* Recommendations: carousel fed by data/recommendations.json (synced from LinkedIn) */}
         <section aria-labelledby="testimonial-title" className="mx-auto max-w-4xl px-4 py-24 text-center">
-          <h2 id="testimonial-title" className={heading}>Recommendation</h2>
-          <figure className="mt-8">
-            <Img src={t.image} alt={`Portrait of ${t.name}`} className="mx-auto h-36 w-36 rounded-full object-cover" />
-            <blockquote className="mt-6 text-left text-lg leading-relaxed text-slate-200">
-              <p>“{t.quote}”</p>
-            </blockquote>
-            <figcaption className="mt-4">
-              <span className="block text-xl font-semibold text-white">{t.name}</span>
-              <span className="text-blue-300">{t.role}, {t.company}</span>
-            </figcaption>
-          </figure>
+          <h2 id="testimonial-title" className={heading}>
+            {profile.recommendations.length > 1 ? "Recommendations" : "Recommendation"}
+          </h2>
+          <RecommendationCarousel
+            // Image paths are resolved here so the client component doesn't import all site data
+            items={profile.recommendations.map((r) => ({ ...r, image: r.image ? asset(r.image) : undefined }))}
+            headingId="testimonial-title"
+          />
         </section>
 
         {/* Experience: bluebonnet backdrop, one reusable Card per job (from LinkedIn) */}

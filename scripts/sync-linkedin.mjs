@@ -72,3 +72,27 @@ const out = {
 
 writeFileSync("data/linkedin.json", JSON.stringify(out, null, 2) + "\n");
 console.log(`Wrote data/linkedin.json: ${out.experience.length} jobs, ${out.education.length} schools, ${out.skills.length} skills`);
+
+// Recommendations go to data/recommendations.json and are MERGED, not overwritten:
+// existing entries (matched by name, case-insensitive) are kept untouched so hand-added
+// portraits and edited text survive; only recommenders not already listed are appended.
+// Skipped when the export has no recommendations file, and hidden/pending ones are ignored.
+const received = read("Recommendations_Received.csv").filter(
+  (r) => !r["Status"] || r["Status"].toUpperCase() === "VISIBLE",
+);
+if (received.length) {
+  const file = "data/recommendations.json";
+  const existing = existsSync(file) ? JSON.parse(readFileSync(file, "utf8")) : [];
+  const known = new Set(existing.map((r) => r.name.toLowerCase()));
+  const added = [];
+  // LinkedIn lists newest first; reverse so new entries are appended oldest to newest.
+  for (const r of received.reverse()) {
+    const name = `${r["First Name"]} ${r["Last Name"]}`.trim();
+    if (!name || !r["Text"] || known.has(name.toLowerCase())) continue;
+    known.add(name.toLowerCase());
+    added.push({ name, role: r["Job Title"], company: r["Company"], quote: r["Text"] });
+  }
+  writeFileSync(file, JSON.stringify([...existing, ...added], null, 2) + "\n");
+  console.log(`Wrote ${file}: ${existing.length + added.length} recommendations (${added.length} new)`);
+  if (added.length) console.log("New recommenders have no portrait; add `image` in the file to show one:", added.map((a) => a.name).join(", "));
+}
