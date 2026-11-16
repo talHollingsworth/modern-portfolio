@@ -1,4 +1,5 @@
 import base from "@/data/profile.json";
+import caseStudies from "@/data/case-studies.json";
 import linkedin from "@/data/linkedin.json";
 
 export type Link = { label: string; href: string };
@@ -19,6 +20,15 @@ export type Job = {
   bullets: string[];
 };
 export type School = { school: string; degree: string; start: string; end: string };
+export type CaseStudy = {
+  title: string;
+  role: string;
+  challenge: string;
+  approach: string;
+  accessibility: string;
+  outcome: string;
+  technologies: string[];
+};
 
 type LinkedInData = Partial<{
   headline: string;
@@ -40,6 +50,7 @@ export const profile = {
   experience: (li.experience?.length ? li.experience : base.experience) as Job[],
   education: (li.education?.length ? li.education : base.education) as School[],
   projects: base.projects as Project[],
+  caseStudies: caseStudies as CaseStudy[],
   syncedAt: li.syncedAt,
 };
 

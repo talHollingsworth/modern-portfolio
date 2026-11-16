@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Improving developer velocity with AI-ready architecture",
+    "role": "Lead Frontend Engineer & Architecture Owner",
+    "challenge": "A growing Next.js application had blurred domain boundaries and inconsistent conventions, slowing onboarding and causing AI coding tools to apply outdated patterns.",
+    "approach": "Created localized documentation across application domains, established repository-wide Copilot guidance, and configured a Playwright MCP workflow so AI agents could inspect and validate browser behavior in local development.",
+    "accessibility": "Built WCAG 2.1 AA expectations and performance budgets into the shared engineering guidance so generated implementations favor semantic HTML and lean client components.",
+    "outcome": "Made project conventions easier for new contributors and AI-assisted workflows to discover, reducing review churn and improving first-pass test alignment.",
+    "technologies": ["Next.js App Router", "Drizzle ORM", "Playwright", "MCP", "GitHub Copilot"]
+  },
+  {
+    "title": "Simplifying loan-offer selection across devices",
+    "role": "Frontend Lead",
+    "challenge": "A multi-step partner-funnel flow created cognitive friction, and offer states could be ambiguous when no option was preselected or rates varied.",
+    "approach": "Delivered a responsive single-screen offer experience with featured and selectable cards, fallback logic for unselected offers, and viewport-aware ordering for desktop and mobile layouts.",
+    "accessibility": "Implemented keyboard-operable selection with explicit selected and checked states. CSS Grid transitions limited layout shift while memoized sorting avoided unnecessary rerenders.",
+    "outcome": "Removed empty-state failures and created a faster, clearer offer-selection interaction for a high-traffic financial-services funnel.",
+    "technologies": ["React", "TypeScript", "Responsive UI", "ARIA", "Performance Optimization"]
+  },
+  {
+    "title": "Raising the accessibility baseline across a web application",
+    "role": "Accessibility Champion & Core Frontend Developer",
+    "challenge": "Accessibility audits identified missing bypass navigation, incomplete asynchronous validation announcements, inconsistent focus behavior, and motion triggers across shared experiences.",
+    "approach": "Introduced a global skip link, semantic form-error associations and live regions, standardized keyboard support and visible focus states, and added reduced-motion safeguards.",
+    "accessibility": "Validated patterns against WCAG 2.1 AA expectations and screen-reader behavior while preserving approved visual design and existing analytics.",
+    "outcome": "Resolved compliance risks across primary customer journeys and translated accessibility requirements into repeatable PR criteria and automated test coverage.",
+    "technologies": ["React", "WAI-ARIA", "WCAG 2.1 AA", "Screen Readers", "Automated Testing"]
+  },
+  {
+    "title": "Making regulatory disclosures self-service and secure",
+    "role": "Full-Stack Frontend Architect",
+    "challenge": "Legal and marketing teams needed to update disclosures quickly without raw CMS HTML, inconsistent design, or avoidable security and accessibility risk.",
+    "approach": "Connected CMS rich-text links to version-controlled dialog components, allowing editors to select approved disclosures while the application safely rendered the matching modal.",
+    "accessibility": "Implemented labeled dialogs with focus trapping, Escape-key support, and focus return. Dialog content was loaded on interaction to keep initial payloads lean.",
+    "outcome": "Enabled stakeholders to place approved disclosures independently while preserving consistent presentation, accessible interactions, and controlled content delivery.",
+    "technologies": ["React", "Headless CMS", "Accessible Dialogs", "Dynamic Imports", "Content Security"]
+  }
+]
