@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
-// Set BASE_PATH (e.g. "/modern-portfolio") when hosting under a repo sub-path.
+// Static export for GitHub Pages. Leave BASE_PATH unset for the root site
+// (talhollingsworth.github.io); set it (e.g. "/modern-portfolio") only when
+// hosting under a repo sub-path. It's exposed to code as NEXT_PUBLIC_BASE_PATH.
 const basePath = process.env.BASE_PATH ?? "";
 
 const nextConfig: NextConfig = {

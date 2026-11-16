@@ -3,15 +3,20 @@ import Nav from "@/components/Nav";
 import Parallax from "@/components/Parallax";
 import { asset, profile, type CaseStudy, type Project } from "@/lib/profile";
 
+// Shared class strings so focus rings and section headings stay consistent.
 const focus =
-  "focus-visible:outline-2 focus-visible:outline-offset-2   focus-visible:outline-blue-400";
+  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400";
 const heading = "text-3xl font-bold tracking-tight text-white sm:text-4xl";
 
+// Plain <img> (the site is a static export with unoptimized images); asset()
+// adds the base path when needed.
 function Img({ src, alt, className }: { src: string; alt: string; className?: string }) {
   // eslint-disable-next-line @next/next/no-img-element
   return <img src={asset(src)} alt={alt} loading="lazy" className={className} />;
 }
 
+// One project tile: optional screenshot(s) with a gentle parallax, role, text and links.
+// A project supplies either a single `image` or an `images` array (shown as a 2-column grid).
 function ProjectCard({ p, index }: { p: Project; index: number }) {
   const id = `project-${index}`;
   const images = p.images ?? (p.image ? [{ src: p.image, alt: p.alt ?? "" }] : []);
@@ -58,6 +63,9 @@ function ProjectCard({ p, index }: { p: Project; index: number }) {
   );
 }
 
+// Case study tile on a solid background for legibility over the parallax image.
+// Challenge and Outcome are always visible; the longer Approach and Accessibility
+// text lives in a native <details> so it's keyboard accessible without JavaScript.
 function CaseStudyCard({ study, index }: { study: CaseStudy; index: number }) {
   const id = `case-study-${index}`;
   return (
@@ -106,10 +114,14 @@ function CaseStudyCard({ study, index }: { study: CaseStudy; index: number }) {
   );
 }
 
+// The whole single-page site, top to bottom. Content comes from lib/profile.ts.
+// Decorative backgrounds are aria-hidden and pointer-events-none so they never
+// affect assistive tech or clicks.
 export default function Home() {
   const t = profile.testimonial;
   return (
     <>
+      {/* Keyboard users can jump past the nav; only visible when focused */}
       <a
         href="#main"
         className="sr-only z-[60] rounded bg-white px-4 py-2 font-semibold text-slate-950 focus:not-sr-only focus:fixed focus:left-2 focus:top-2"
@@ -118,8 +130,10 @@ export default function Home() {
       </a>
       <Nav name={profile.name} />
       <main id="main">
+        {/* Hero: flag photo (parallax) + dark overlay for text contrast + two colored glows */}
         <section id="top" aria-labelledby="hero-title" className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-b from-slate-950 via-blue-950 to-slate-900">
           <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+            {/* Extends 30vh above the section so the image never reveals its edge while moving */}
             <Parallax speed={0.3} className="absolute inset-x-0 -top-[30vh] bottom-0">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={asset("/img/hero-texas-flag.jpg")} alt="" className="h-full w-full object-cover" />
@@ -149,11 +163,13 @@ export default function Home() {
           </div>
         </section>
 
+        {/* About text comes from the LinkedIn summary. max-w-3xl keeps line length readable; mx-auto centers the block while the text stays left-aligned */}
         <section id="about" aria-labelledby="about-title" className="mx-auto max-w-6xl px-4 py-24">
           <h2 id="about-title" className={`${heading} text-center`}>About</h2>
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-200">{profile.summary}</p>
         </section>
 
+        {/* Skills: own full-width band (slate-900) so it reads as a separate row from About */}
         <section id="skills" aria-labelledby="skills-title" className="bg-slate-900 py-24">
           <div className="mx-auto max-w-6xl px-4">
             <h2 id="skills-title" className={`${heading} text-center`}>Skills</h2>
@@ -167,11 +183,12 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Case studies: code photo as a faint parallax backdrop (opacity-10 keeps text legible) */}
         <section id="case-studies" aria-labelledby="case-studies-title" className="relative overflow-hidden bg-slate-950 py-24">
           <div aria-hidden="true" className="pointer-events-none absolute inset-0">
             <Parallax speed={0.2} className="absolute inset-x-0 -inset-y-80">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={asset("/img/case-studies-code.jpg")} alt="" loading="lazy" className="h-full w-full               object-cover opacity-10" />
+              <img src={asset("/img/case-studies-code.jpg")} alt="" loading="lazy" className="h-full w-full object-cover opacity-10" />
             </Parallax>
           </div>
           <div className="relative mx-auto max-w-6xl px-4">
@@ -204,6 +221,7 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Recommendation: single testimonial from profile.json */}
         <section aria-labelledby="testimonial-title" className="mx-auto max-w-4xl px-4 py-24 text-center">
           <h2 id="testimonial-title" className={heading}>Recommendation</h2>
           <figure className="mt-8">
@@ -218,6 +236,7 @@ export default function Home() {
           </figure>
         </section>
 
+        {/* Experience: bluebonnet backdrop, one reusable Card per job (from LinkedIn) */}
         <section id="experience" aria-labelledby="experience-title" className="relative overflow-hidden bg-slate-950 py-24">
           <div aria-hidden="true" className="pointer-events-none absolute inset-0">
             <Parallax speed={0.2} className="absolute inset-x-0 -inset-y-80">
@@ -259,7 +278,7 @@ export default function Home() {
         <section id="contact" aria-labelledby="contact-title" className="bg-gradient-to-b from-slate-900 to-blue-950 py-24 text-center">
           <h2 id="contact-title" className={heading}>Let’s connect</h2>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <a href={profile.linkedin} target="_blank" rel="noopener noreferrer"             className={`rounded-full bg-blue-400 px-6 py-3 font-semibold text-slate-950 hover:bg-blue-300 ${focus}`}>
+            <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className={`rounded-full bg-blue-400 px-6 py-3 font-semibold text-slate-950 hover:bg-blue-300 ${focus}`}>
               LinkedIn<span className="sr-only"> (opens in new tab)</span>
             </a>
             <a href={profile.github} target="_blank" rel="noopener noreferrer" className={`rounded-full border border-white/40 px-6 py-3 font-semibold text-white hover:bg-white/10 ${focus}`}>

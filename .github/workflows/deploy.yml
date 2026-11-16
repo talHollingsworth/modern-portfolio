@@ -14,6 +14,7 @@ concurrency:
   group: pages
   cancel-in-progress: true
 
+# Every push to main lints, builds the static export (out/) and publishes it to GitHub Pages.
 jobs:
   build:
     runs-on: ubuntu-latest

@@ -4,15 +4,18 @@
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
+/* Keeps anchor targets from hiding under the fixed nav bar */
 html {
   scroll-padding-top: 4.5rem;
 }
 
+/* Visible keyboard focus on every interactive element (WCAG 2.4.7) */
 :focus-visible {
   outline: 2px solid #60a5fa;
   outline-offset: 2px;
 }
 
+/* Respect the OS "reduce motion" setting: no smooth scroll or animations */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto !important;

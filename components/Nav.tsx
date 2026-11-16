@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 
+// Label + section id for each nav entry; ids must match the <section id> in app/page.tsx.
 const links = [
   ["About", "#about"],
+  ["Skills", "#skills"],
   ["Case Studies", "#case-studies"],
   ["Projects", "#projects"],
   ["Experience", "#experience"],
@@ -11,6 +13,8 @@ const links = [
   ["Contact", "#contact"],
 ] as const;
 
+// Fixed top bar. Below the md breakpoint the links collapse behind a Menu button
+// (aria-expanded/aria-controls keep it screen-reader friendly).
 export default function Nav({ name }: { name: string }) {
   const [open, setOpen] = useState(false);
   const link =
@@ -35,6 +39,7 @@ export default function Nav({ name }: { name: string }) {
           id="nav-links"
           className={`${open ? "block" : "hidden"} absolute inset-x-0 top-full bg-slate-950 p-2 md:static md:flex md:bg-transparent md:p-0`}
         >
+          {/* Selecting a link also closes the mobile menu */}
           {links.map(([label, href]) => (
             <li key={href}>
               <a href={href} className={link} onClick={() => setOpen(false)}>

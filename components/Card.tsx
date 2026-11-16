@@ -7,7 +7,10 @@ type Props = {
   labelledBy?: string;
 };
 
-// Shared surface for content blocks (jobs, case studies, etc.).
+// Shared surface for content blocks (currently the experience entries).
+// Case study and project cards are intentionally separate components.
+// `as` picks the HTML tag (use "li" inside lists); `labelledBy` should be the id
+// of the card's heading so screen readers announce it.
 export default function Card({ as: Tag = "div", className = "", labelledBy, children }: Props) {
   return (
     <Tag
