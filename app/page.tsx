@@ -140,7 +140,7 @@ export default function Home() {
         </section>
 
         <section id="about" aria-labelledby="about-title" className="mx-auto max-w-6xl px-4 py-24">
-          <h2 id="about-title" className={heading}>About</h2>
+          <h2 id="about-title" className={`${heading} text-center`}>About</h2>
           <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-200">{profile.summary}</p>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {profile.skillSets.map((s) => (
