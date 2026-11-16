@@ -107,7 +107,7 @@ export default function Home() {
       </a>
       <Nav name={profile.name} />
       <main id="main">
-        <section id="top" aria-labelledby="hero-title" className="relative flex min-h-screen items-start overflow-hidden bg-gradient-to-b from-slate-950 via-blue-950 to-slate-900">
+        <section id="top" aria-labelledby="hero-title" className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-b from-slate-950 via-blue-950 to-slate-900">
           <div aria-hidden="true" className="pointer-events-none absolute inset-0">
             <Parallax speed={0.3} className="absolute inset-x-0 -top-[30vh] bottom-0">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -121,7 +121,7 @@ export default function Home() {
               <div className="h-80 w-80 rounded-full bg-red-600/20 blur-3xl" />
             </Parallax>
           </div>
-          <div className="relative mx-auto w-full max-w-6xl px-4 pt-24 sm:pt-28">
+          <div className="relative mx-auto w-full max-w-6xl px-4 pt-20">
             <p className="text-lg text-blue-300">Hi, I’m</p>
             <h1 id="hero-title" className="mt-2 text-5xl font-extrabold tracking-tight text-white sm:text-7xl">
               {profile.name}
