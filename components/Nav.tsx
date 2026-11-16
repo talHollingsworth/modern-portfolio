@@ -23,7 +23,19 @@ export default function Nav({ name }: { name: string }) {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-slate-950/90 backdrop-blur">
       <nav aria-label="Main" className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <a href="#top" className={`${link} font-semibold`}>
+        <a
+          href="#top"
+          className={`${link} font-semibold`}
+          onClick={(e) => {
+            // Reload the page from the top: clear any #section hash and disable scroll restoration,
+            // otherwise the browser would jump back to the previous scroll position
+            e.preventDefault();
+            history.scrollRestoration = "manual";
+            history.replaceState(null, "", window.location.pathname + window.location.search);
+            window.scrollTo(0, 0);
+            window.location.reload();
+          }}
+        >
           {name}
         </a>
         <button

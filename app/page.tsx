@@ -1,5 +1,6 @@
 import Card from "@/components/Card";
 import Nav from "@/components/Nav";
+import BackToTop from "@/components/BackToTop";
 import Parallax from "@/components/Parallax";
 import RecommendationCarousel from "@/components/RecommendationCarousel";
 import { asset, profile, type CaseStudy, type Project } from "@/lib/profile";
@@ -140,7 +141,7 @@ export default function Home() {
       <Nav name={profile.name} />
       <main id="main">
         {/* Hero: flag photo (parallax) + dark overlay for text contrast + two colored glows */}
-        <section id="top" aria-labelledby="hero-title" className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-b from-slate-950 via-blue-950 to-slate-900">
+        <section id="top" tabIndex={-1} aria-labelledby="hero-title" className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-b from-slate-950 via-blue-950 to-slate-900 focus:outline-none">
           <div aria-hidden="true" className="pointer-events-none absolute inset-0">
             {/* Extends 30vh above the section so the image never reveals its edge while moving */}
             <Parallax speed={0.3} className="absolute inset-x-0 -top-[30vh] bottom-0">
@@ -293,6 +294,7 @@ export default function Home() {
           </div>
         </section>
       </main>
+      <BackToTop />
       <footer className="border-t border-white/10 py-8 text-center text-sm text-slate-300">
         <p>© {new Date().getFullYear()} {profile.name}</p>
         <p className="mx-auto mt-3 max-w-3xl px-4">
