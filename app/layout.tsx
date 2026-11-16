@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+// Page title and description used by browsers and search engines.
 export const metadata: Metadata = {
   title: "Tal Hollingsworth | Web Developer",
   description:

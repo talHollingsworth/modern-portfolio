@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 
+// Label + section id for each nav entry; ids must match the <section id> in app/page.tsx.
 const links = [
   ["About", "#about"],
+  ["Skills", "#skills"],
   ["Case Studies", "#case-studies"],
   ["Projects", "#projects"],
   ["Experience", "#experience"],
@@ -11,10 +13,12 @@ const links = [
   ["Contact", "#contact"],
 ] as const;
 
+// Fixed top bar. Below the md breakpoint the links collapse behind a Menu button
+// (aria-expanded/aria-controls keep it screen-reader friendly).
 export default function Nav({ name }: { name: string }) {
   const [open, setOpen] = useState(false);
   const link =
-    "block rounded px-3 py-2 text-slate-100 hover:text-violet-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-300";
+    "block rounded px-3 py-2 text-slate-100 hover:text-blue-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400";
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-slate-950/90 backdrop-blur">
@@ -24,7 +28,7 @@ export default function Nav({ name }: { name: string }) {
         </a>
         <button
           type="button"
-          className="rounded border border-white/30 px-3 py-2 text-slate-100 md:hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet-300"
+          className="rounded border border-white/30 px-3 py-2 text-slate-100 md:hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
           aria-expanded={open}
           aria-controls="nav-links"
           onClick={() => setOpen(!open)}
@@ -35,6 +39,7 @@ export default function Nav({ name }: { name: string }) {
           id="nav-links"
           className={`${open ? "block" : "hidden"} absolute inset-x-0 top-full bg-slate-950 p-2 md:static md:flex md:bg-transparent md:p-0`}
         >
+          {/* Selecting a link also closes the mobile menu */}
           {links.map(([label, href]) => (
             <li key={href}>
               <a href={href} className={link} onClick={() => setOpen(false)}>

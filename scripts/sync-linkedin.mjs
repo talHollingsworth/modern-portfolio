@@ -9,6 +9,9 @@ if (!dir || !existsSync(dir)) {
   process.exit(1);
 }
 
+// Minimal CSV parser (no dependency). Handles quoted fields, escaped quotes ("")
+// and newlines inside quotes, which LinkedIn uses for multi-line job descriptions.
+// Returns an array of objects keyed by the header row.
 function parseCsv(text) {
   const rows = [];
   let row = [], field = "", quoted = false;
@@ -32,6 +35,7 @@ function parseCsv(text) {
   return rest.map((r) => Object.fromEntries(head.map((h, i) => [h.trim(), (r[i] ?? "").trim()])));
 }
 
+// Reads one CSV from the export folder; a missing file yields [] so partial exports still work.
 const read = (name) => {
   const file = join(dir, name);
   return existsSync(file) ? parseCsv(readFileSync(file, "utf8").replace(/^\uFEFF/, "")) : [];
@@ -39,9 +43,12 @@ const read = (name) => {
 
 // LinkedIn dates look like "Jan 2018" or "2012"; empty end means current.
 const end = (v) => v || "present";
+// Splits a job description into bullet points on line breaks or "•" characters.
 const bullets = (text) =>
   text.split(/\r?\n|•|\u2022/).map((s) => s.replace(/^[-*\s]+/, "").trim()).filter(Boolean);
 
+// Map LinkedIn's column names onto the shape lib/profile.ts expects.
+// Note: this overwrites data/linkedin.json, including any manual summary edit.
 const profileRow = read("Profile.csv")[0] ?? {};
 const out = {
   headline: profileRow["Headline"] || undefined,
