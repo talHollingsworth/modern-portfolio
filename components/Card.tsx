@@ -14,6 +14,7 @@ type Props = {
 export default function Card({ as: Tag = "div", className = "", labelledBy, children }: Props) {
   return (
     <Tag
+      role={Tag === "div" && labelledBy ? "group" : undefined}
       aria-labelledby={labelledBy}
       className={`rounded-2xl border border-white/10 bg-slate-950/80 p-6 shadow-lg shadow-black/20 backdrop-blur-sm sm:p-8 ${className}`}
     >
