@@ -6,10 +6,21 @@ updates:
     schedule:
       interval: weekly
     open-pull-requests-limit: 5
+    # Match the Conventional Commits check required on pull requests.
+    commit-message:
+      prefix: chore
+      include: scope
+    # The Next.js ESLint toolchain does not support TypeScript 7 yet.
+    ignore:
+      - dependency-name: typescript
+        update-types: ["version-update:semver-major"]
   - package-ecosystem: github-actions
     directory: /
     schedule:
       interval: weekly
+    commit-message:
+      prefix: chore
+      include: scope
     groups:
       # All codeql-action steps must share one version
       codeql-action:
