@@ -13,7 +13,8 @@
     "test:ui": "playwright test --ui",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "sync:linkedin": "node scripts/sync-linkedin.mjs"
+    "sync:linkedin": "node scripts/sync-linkedin.mjs",
+    "prepare": "husky"
   },
   "dependencies": {
     "next": "16.4.6",
@@ -22,6 +23,8 @@
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.14.0",
+    "@commitlint/cli": "^21.2.4",
+    "@commitlint/config-conventional": "^21.2.4",
     "@playwright/test": "^1.65.1",
     "@storybook/addon-a11y": "^10.6.7",
     "@storybook/nextjs-vite": "^10.6.7",
@@ -31,6 +34,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.4.6",
+    "husky": "^9.1.7",
     "serve": "^14.2.8",
     "storybook": "^10.6.7",
     "tailwindcss": "4.3.3",
