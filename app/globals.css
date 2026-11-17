@@ -15,6 +15,40 @@ html {
   outline-offset: 2px;
 }
 
+/* Print: a clean black-on-white copy for people who print or save the page as a PDF */
+@media print {
+  html,
+  body {
+    background: #fff !important;
+  }
+  * {
+    color: #000 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  /* Nav bar, floating buttons and decorative background photos add nothing on paper */
+  header,
+  .fixed,
+  img[alt=""] {
+    display: none !important;
+  }
+  section {
+    min-height: 0 !important;
+    padding-block: 1.5rem !important;
+  }
+  article {
+    break-inside: avoid;
+    border-color: #999 !important;
+  }
+  /* Show where links go, since they can't be clicked on paper */
+  main a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    word-break: break-all;
+  }
+}
+
 /* Tooltip for icon-only controls (visual duplicate of their screen-reader name). Shown on
    hover and keyboard focus; stays visible while the pointer is over it, and Escape hides it
    (WCAG 1.4.13) via the data-tips-off flag set by components/TooltipDismiss.tsx. */

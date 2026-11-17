@@ -2,6 +2,7 @@
   "name": "Tal Hollingsworth",
   "linkedin": "https://www.linkedin.com/in/tal-hollingsworth",
   "github": "https://github.com/talHollingsworth",
+  "openTo": "Open to senior frontend and full-stack roles · Remote only · Based in Texas",
   "resumePdf": "/pdf/tal-hollingsworth-resume-portfolio.pdf",
   "projects": [
     {
@@ -18,8 +19,22 @@
       ]
     },
     {
+      "title": "This Portfolio",
+      "role": "Design + Development",
+      "description": "Open-source Next.js and Tailwind site built for accessibility and performance: WCAG 2.2 AA tested with axe across five device profiles, 100 Lighthouse scores, CI pre-flight checks, CodeQL and a LinkedIn data sync.",
+      "image": "/img/og-image.jpg",
+      "alt": "This portfolio's home page",
+      "links": [
+        {
+          "label": "Source on GitHub",
+          "href": "https://github.com/talHollingsworth/talHollingsworth.github.io"
+        }
+      ]
+    },
+    {
       "title": "FXCM Pro",
       "role": "Design + Development",
+      "description": "Designed and built the landing experience for FXCM's professional-trader offering, with responsive layouts across devices.",
       "image": "/img/fxcm-pro.jpg",
       "alt": "FXCM Pro homepage",
       "links": [
@@ -32,6 +47,7 @@
     {
       "title": "Homepage Banners",
       "role": "Development",
+      "description": "Promotional homepage banners, including the 20-year anniversary campaign, rolled out across FXCM's regional sites.",
       "image": "/img/homepage-banners.jpg",
       "alt": "FXCM 20 year homepage banner",
       "links": [
@@ -76,21 +92,22 @@
     {
       "title": "Multilingual Development",
       "role": "Development",
+      "description": "Localized page development for FXCM's Arabic, German, Spanish and Italian sites, keeping one consistent, responsive design across languages.",
       "images": [
         {
-          "src": "/img/ar-banner.jpg",
+          "src": "/img/ar-banner.webp",
           "alt": "FXCM Arabic homepage"
         },
         {
-          "src": "/img/de-banner.jpg",
+          "src": "/img/de-banner.webp",
           "alt": "FXCM German homepage"
         },
         {
-          "src": "/img/es-banner.jpg",
+          "src": "/img/es-banner.webp",
           "alt": "FXCM Spanish homepage"
         },
         {
-          "src": "/img/it-banner.jpg",
+          "src": "/img/it-banner.webp",
           "alt": "FXCM Italian homepage"
         }
       ],
@@ -136,6 +153,7 @@
     {
       "title": "New To Forex Guide",
       "role": "Development",
+      "description": "An educational guide for new traders, built once and reused across the UK, AU and Markets sites.",
       "image": "/img/new-to-forex-guide.jpg",
       "alt": "FXCM New to Forex Guide webpage",
       "links": [
@@ -156,6 +174,7 @@
     {
       "title": "FXCM Rates Widget - Angular Widget",
       "role": "Update + Maintenance",
+      "description": "Maintained and updated an Angular widget that surfaces FXCM rates on the homepage.",
       "image": "/img/rate-widget.jpg",
       "alt": "FXCM Rates Widget",
       "links": [

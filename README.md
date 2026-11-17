@@ -56,3 +56,7 @@ The Recommendations section is a carousel fed by `data/recommendations.json`. Th
 ## Deploy
 
 `.github/workflows/deploy.yml` builds and publishes to GitHub Pages on every push to `main`. This repo is `talHollingsworth.github.io`, so the site is served from the root and no `BASE_PATH` is set. **Settings → Pages → Source** must be **GitHub Actions**. If you host it under a repo sub-path instead, set `BASE_PATH` (e.g. `/repo-name`) in the build step.
+
+### Analytics (GoatCounter)
+
+Privacy-friendly, cookie-free page views via [GoatCounter](https://www.goatcounter.com). The script is included only when the `GOATCOUNTER_CODE` repository variable is set (**Settings → Secrets and variables → Actions → Variables**); the value is the site code only (e.g. `talhollingsworth`). The CSP in `app/layout.tsx` allows `gc.zgo.at` and `<code>.goatcounter.com` only when it is set. Stats are at `https://<code>.goatcounter.com`.
