@@ -32,6 +32,10 @@ npm run storybook       # component previews with the a11y panel (port 6006)
 
 Every spec runs on five device profiles (foldable cover screen, small phone, mobile, tablet, desktop) defined in `playwright.config.ts`. CI runs the tests before deploying, so a failing test blocks the release. Automated scans catch only part of WCAG, so keep doing manual keyboard and screen-reader checks.
 
+## Commit messages
+
+Commits follow [Conventional Commits](https://www.conventionalcommits.org) (`feat: add carousel`, `fix: ...`, `docs: ...`, `chore: ...`). A Husky `commit-msg` hook runs commitlint locally (installed by `npm install` via the `prepare` script), and the PR checks lint every commit in the PR. Rules live in `commitlint.config.mjs`.
+
 ## Keeping LinkedIn data up to date
 
 LinkedIn has no public API for reading your own profile, so the site syncs from LinkedIn's official data export:
