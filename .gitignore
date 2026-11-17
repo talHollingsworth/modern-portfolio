@@ -44,3 +44,7 @@ next-env.d.ts
 /test-results/
 /playwright-report/
 /storybook-static/
+
+# Lighthouse CI output
+/lhci-report/
+/.lighthouseci/
