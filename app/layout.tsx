@@ -40,16 +40,21 @@ export const metadata: Metadata = {
 // Browser UI color on mobile
 export const viewport: Viewport = { themeColor: "#020617" };
 
+// Optional privacy-friendly analytics (GoatCounter: no cookies, no personal data). Enabled only
+// when GOATCOUNTER_CODE is set at build time (see deploy.yml); otherwise nothing is loaded.
+const gcCode = process.env.GOATCOUNTER_CODE;
+const gcEndpoint = gcCode ? `https://${gcCode}.goatcounter.com` : "";
+
 // GitHub Pages can't send response headers, so the CSP is delivered as a <meta> tag. Inline
 // scripts/styles are required by Next's static export; everything else is locked to this origin.
 // Production only: the dev server needs eval for hot reload.
 const csp = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  `script-src 'self' 'unsafe-inline'${gcCode ? " https://gc.zgo.at" : ""}`,
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data:",
+  `img-src 'self' data:${gcCode ? ` ${gcEndpoint}` : ""}`,
   "font-src 'self' data:",
-  "connect-src 'self'",
+  `connect-src 'self'${gcCode ? ` ${gcEndpoint}` : ""}`,
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'none'",
@@ -74,6 +79,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
         {children}
+        {gcCode && (
+          <script
+            async
+            data-goatcounter={`${gcEndpoint}/count`}
+            src="https://gc.zgo.at/count.js"
+          />
+        )}
       </body>
     </html>
   );

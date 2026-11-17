@@ -17,6 +17,10 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # Set the GOATCOUNTER_CODE repository variable (Settings > Secrets and variables > Actions >
+    # Variables) to enable analytics; leave it unset to ship without any tracking script.
+    env:
+      GOATCOUNTER_CODE: ${{ vars.GOATCOUNTER_CODE }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
