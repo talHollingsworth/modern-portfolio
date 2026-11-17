@@ -94,6 +94,8 @@ export default function RecommendationCarousel({ items, headingId }: Props) {
                 <img
                   src={t.image}
                   alt={`Portrait of ${t.name}`}
+                  width={144}
+                  height={144}
                   loading="lazy"
                   className="mx-auto h-36 w-36 rounded-full object-cover"
                 />

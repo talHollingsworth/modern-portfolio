@@ -13,8 +13,10 @@ const heading = "text-3xl font-bold tracking-tight text-white sm:text-4xl";
 // Plain <img> (the site is a static export with unoptimized images); asset()
 // adds the base path when needed.
 function Img({ src, alt, className }: { src: string; alt: string; className?: string }) {
+  // Approximate intrinsic size (3:2). The parent box is fixed and object-cover crops, so this
+  // only lets the browser reserve space and avoid layout shift while images load.
   // eslint-disable-next-line @next/next/no-img-element
-  return <img src={asset(src)} alt={alt} loading="lazy" className={className} />;
+  return <img src={asset(src)} alt={alt} width={1200} height={800} loading="lazy" className={className} />;
 }
 
 // Unsplash photos used as section backgrounds. The Unsplash license doesn't
@@ -146,7 +148,7 @@ export default function Home() {
             {/* Extends 30vh above the section so the image never reveals its edge while moving */}
             <Parallax speed={0.3} className="absolute inset-x-0 -top-[30vh] bottom-0">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={asset("/img/hero-texas-flag.jpg")} alt="" className="h-full w-full object-cover" />
+              <img src={asset("/img/hero-texas-flag.jpg")} alt="" width={2000} height={1126} className="h-full w-full object-cover" />
             </Parallax>
             <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-blue-950/65 to-slate-950/85" />
             <Parallax speed={0.5} className="absolute -left-24 top-1/4">
@@ -158,10 +160,15 @@ export default function Home() {
           </div>
           <div className="relative mx-auto w-full max-w-6xl px-4 pt-20">
             <p className="text-lg text-blue-300">Hi, I’m</p>
-            <h1 id="hero-title" className="mt-2 text-5xl font-extrabold tracking-tight text-white sm:text-7xl">
+            <h1 id="hero-title" className="mt-2 text-[clamp(1.75rem,10.5vw,3rem)] font-extrabold tracking-tight text-white sm:text-7xl">
               {profile.name}
             </h1>
             <p className="mt-4 text-2xl text-slate-200 sm:text-3xl">{profile.title}</p>
+            {/* Availability line for recruiters; the dot is decorative */}
+            <p className="mt-4 flex items-center gap-2 text-lg text-emerald-300">
+              <span aria-hidden="true" className="h-2.5 w-2.5 shrink-0 rounded-full bg-emerald-400" />
+              {profile.openTo}
+            </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <a href="#case-studies" className={`rounded-full bg-blue-400 px-6 py-3 font-semibold text-slate-950 hover:bg-blue-300 ${focus}`}>
                 View my work
@@ -198,7 +205,7 @@ export default function Home() {
           <div aria-hidden="true" className="pointer-events-none absolute inset-0">
             <Parallax speed={0.2} className="absolute inset-x-0 -inset-y-80">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={asset("/img/case-studies-code.jpg")} alt="" loading="lazy" className="h-full w-full object-cover opacity-10" />
+              <img src={asset("/img/case-studies-code.webp")} alt="" width={1600} height={1067} loading="lazy" className="h-full w-full object-cover opacity-10" />
             </Parallax>
           </div>
           <div className="relative mx-auto max-w-6xl px-4">
@@ -248,7 +255,7 @@ export default function Home() {
           <div aria-hidden="true" className="pointer-events-none absolute inset-0">
             <Parallax speed={0.2} className="absolute inset-x-0 -inset-y-80">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={asset("/img/experience-bluebonnets.jpg")} alt="" loading="lazy" className="h-full w-full object-cover opacity-10" />
+              <img src={asset("/img/experience-bluebonnets.webp")} alt="" width={1600} height={1067} loading="lazy" className="h-full w-full object-cover opacity-10" />
             </Parallax>
           </div>
           <div className="relative mx-auto max-w-4xl px-4">
